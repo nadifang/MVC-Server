@@ -1,0 +1,6 @@
+/cmake-build-debug/
+/.vscode/
+/.idea/
+/build/
+Server.exe
+.clang-format

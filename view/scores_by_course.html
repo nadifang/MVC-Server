@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Test</title>
+</head>
+
+<body>
+	<h1>Course Score Information</h1>
+	<p>
+	ID:&nbsp;{{id}}</br>
+	Name:&nbsp;{{name}}</br>
+	Time:&nbsp;{{time}}</br>
+	Location:&nbsp;{{location}}</br>
+	Teacher:&nbsp;{{teacher}}
+	</p>
+	<h2>Scores</h2>
+	<table>
+	<tr><td>Student ID</td><td>Name</td><td>Score</td><td>Age</td><td>Sex</td></tr>
+	{{each score-arr row}}
+	<tr><td><a href="/scorebystudent/{{row.stu-id}}">{{row.stu-id}}</a></td><td>{{row.stu-name}}</td><td>{{row.score}}</td><td>{{row.age}}</td><td>{{row.sex}}</td></tr>
+	{{/each}}
+	</table>
+</body>
+
+</html>
