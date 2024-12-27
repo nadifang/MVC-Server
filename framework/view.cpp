@@ -70,11 +70,6 @@ string View::render(ModelAndView &m) {
 				content.erase(content.find("{{if"), endPos - content.find("{{if") + 7);
 		}
 	}
-	// delete all include tags
-	while (content.find("{{include") != string::npos) {
-		int endPos = content.find("}}", content.find("{{include")) + 1;
-		content.erase(content.find("{{include"), endPos - content.find("{{include") + 1);
-	}
 	if (content.find("{{") != string::npos) {
 		throw "500";
 	}
