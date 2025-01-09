@@ -3,6 +3,7 @@
 #include "util.h"
 #include <string>
 #include <vector>
+#include <stdexcept>
 using namespace std;
 
 Router *thisRouter;
@@ -32,14 +33,14 @@ ModelAndView Router::handle(map<string, string> &req) {
 				} else if (path[it->path.length()] == '?') {
 					string argS = path.substr(it->path.length() + 1);
 					if (argS == "")
-						throw "400";
+						throw runtime_error("400");
 					vector<string> argList = split(argS, '&');
 					for (auto arg : argList) {
 						vector<string> kv = split(arg, '=');
 						if (kv.size() == 1)
 							kv.push_back("");
 						else if (kv.size() != 2)
-							throw "400";
+							throw runtime_error("400");
 						args[kv[0]] = kv[1];
 					}
 				} else
@@ -50,7 +51,7 @@ ModelAndView Router::handle(map<string, string> &req) {
 			return m;
 		}
 	}
-	throw "404";
+	throw runtime_error("404");
 }
 
 void Router::addRouting(string method, string path, Controller *obj, CTRL_FUN fun) {

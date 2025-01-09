@@ -3,6 +3,7 @@
 #include <iostream>
 #include "globalConfig.h"
 #include "util.h"
+#include <stdexcept>
 using namespace std;
 
 string View::render(ModelAndView &m) {
@@ -71,7 +72,7 @@ string View::render(ModelAndView &m) {
 		}
 	}
 	if (content.find("{{") != string::npos) {
-		throw "500";
+		throw runtime_error("500");
 	}
 	return content;
 }

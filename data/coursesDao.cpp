@@ -6,7 +6,7 @@ string CoursesDao::getNameById(const string &id) {
 			return course["name"];
 		}
 	}
-	throw "500";
+	throw runtime_error("500");
 }
 
 string CoursesDao::getTimeById(const string &id) {
@@ -15,7 +15,7 @@ string CoursesDao::getTimeById(const string &id) {
 			return course["time"];
 		}
 	}
-	throw "500";
+	throw runtime_error("500");
 }
 
 string CoursesDao::getLocationById(const string &id) {
@@ -24,7 +24,7 @@ string CoursesDao::getLocationById(const string &id) {
 			return course["location"];
 		}
 	}
-	throw "500";
+	throw runtime_error("500");
 }
 
 string CoursesDao::getTeacherById(const string &id) {
@@ -33,7 +33,7 @@ string CoursesDao::getTeacherById(const string &id) {
 			return course["teacher"];
 		}
 	}
-	throw "500";
+	throw runtime_error("500");
 }
 
 string CoursesDao::getIdByName(const string &name) {
@@ -42,7 +42,7 @@ string CoursesDao::getIdByName(const string &name) {
 			return course["id"];
 		}
 	}
-	throw "500";
+	throw runtime_error("500");
 }
 
 string CoursesDao::getTimeByName(const string &name) {
@@ -51,7 +51,7 @@ string CoursesDao::getTimeByName(const string &name) {
 			return course["time"];
 		}
 	}
-	throw "500";
+	throw runtime_error("500");
 }
 
 string CoursesDao::getLocationByName(const string &name) {
@@ -60,7 +60,7 @@ string CoursesDao::getLocationByName(const string &name) {
 			return course["location"];
 		}
 	}
-	throw "500";
+	throw runtime_error("500");
 }
 
 string CoursesDao::getTeacherByName(const string &name) {
@@ -69,7 +69,7 @@ string CoursesDao::getTeacherByName(const string &name) {
 			return course["teacher"];
 		}
 	}
-	throw "500";
+	throw runtime_error("500");
 }
 
 vector<map<string, string> > CoursesDao::getAll() {

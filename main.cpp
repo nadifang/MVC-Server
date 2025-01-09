@@ -7,6 +7,7 @@
 #include "studentsDao.h"
 #include "view.h"
 #include "http.h"
+#include <stdexcept>
 using namespace std;
 
 int main() {
@@ -86,20 +87,20 @@ int main() {
 			type = "html";
 			try {
 				res = myRouter.handle(an);
-			} catch (char const *e) {
-				if (strcmp(e, "404") == 0) {
+			} catch (runtime_error &e) {
+				if (strcmp(e.what(), "404") == 0) {
 					res.pageName = "error.html";
 					map<string, string> a;
 					a["errorMessage"] = "404 Not Found.";
 					res.args          = a;
 					code              = 404;
-				} else if (strcmp(e, "500") == 0) {
+				} else if (strcmp(e.what(), "500") == 0) {
 					res.pageName = "error.html";
 					map<string, string> a;
 					a["errorMessage"] = "500 Internal Server Error.";
 					res.args          = a;
 					code              = 500;
-				} else if (strcmp(e, "400") == 0) {
+				} else if (strcmp(e.what(), "400") == 0) {
 					res.pageName = "error.html";
 					map<string, string> a;
 					a["errorMessage"] = "400 Bad Request.";
@@ -110,8 +111,8 @@ int main() {
 			string html;
 			try {
 				html = View::render(res);
-			} catch (char const *e) {
-				if (strcmp(e, "500") == 0) {
+			} catch (runtime_error &e) {
+				if (strcmp(e.what(), "500") == 0) {
 					ModelAndView error;
 					error.pageName             = "error.html";
 					error.args["errorMessage"] = "500 Internal Server Error.";

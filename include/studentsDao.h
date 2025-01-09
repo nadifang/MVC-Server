@@ -2,6 +2,7 @@
 #define STUDENTSDAO_H
 
 #include "csvDao.h"
+#include <stdexcept>
 
 class StudentsDao final : public CsvDao {
 public:

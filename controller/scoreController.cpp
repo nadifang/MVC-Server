@@ -5,14 +5,6 @@ IMPLEMENT_FUN(ScoreController, 0, scoreByStu)
 IMPLEMENT_FUN(ScoreController, 1, scoreByCourse)
 
 ModelAndView ScoreController::scoreByStu(map<string, string> args) {
-	// if (args.find("stuId") == args.end()) {
-	//     ModelAndView m;
-	//     m.pageName = "error.html";
-	//     map<string, string> a;
-	//     a["errorMessage"] = "404 Not Found.";
-	//     m.args = a;
-	//     return m;
-	// }
 	string stuId = args["stuId"];
 	ModelAndView m;
 	m.pageName = "scores_by_stu.html";

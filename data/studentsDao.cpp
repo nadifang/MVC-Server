@@ -6,7 +6,7 @@ string StudentsDao::getNameById(const string &id) {
 			return student["name"];
 		}
 	}
-	throw "500";
+	throw runtime_error("500");
 }
 
 string StudentsDao::getAgeById(const string &id) {
@@ -15,7 +15,7 @@ string StudentsDao::getAgeById(const string &id) {
 			return student["age"];
 		}
 	}
-	throw "500";
+	throw runtime_error("500");
 }
 string StudentsDao::getSexById(const string &id) {
 	for (auto &student : data) {
@@ -23,7 +23,7 @@ string StudentsDao::getSexById(const string &id) {
 			return student["sex"];
 		}
 	}
-	throw "500";
+	throw runtime_error("500");
 }
 
 vector<map<string, string> > StudentsDao::getAll() {
